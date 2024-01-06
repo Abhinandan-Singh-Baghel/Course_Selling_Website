@@ -2,7 +2,16 @@ const mongoose = require('mongoose');
 
 // Connect to MongoDB
 
-mongoose.connect('');
+mongoose.connect('mongodb+srv://abhinandansinghbaghel2001:cYfhJfMRLe23S7Ln@cluster0.3fjqkhz.mongodb.net/new_db');
+
+// mongodb+srv://abhinandansinghbaghel2001:cYfhJfMRLe23S7Ln@cluster0.3fjqkhz.mongodb.net/ 
+// this is the default connection string
+// add /Course_Selling_App at the end to make a new database of this name
+
+
+
+
+
 
 //Define Schemas
 

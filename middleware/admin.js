@@ -5,6 +5,8 @@ const { Admin } = require('../db');
 function adminMiddleware(req, res, next){
     // Implement admin auth logic
     // You need to check the headers and validate the admin from the admin DB.
+    // username and password will be present in the header
+
 
     const username = req.headers.username; // harkirat@gmail.com
     const password = req.headers.password; // 123456
@@ -18,7 +20,7 @@ function adminMiddleware(req, res, next){
             next();
         }else{
             res.status(403).json({
-                msg: "Admin doesn't exist";
+                msg: "Admin doesn't exist"
             })
         }
     })

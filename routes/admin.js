@@ -1,3 +1,4 @@
+const express = require('express');
 const { Router } = require('express');
 const adminMiddleware = require('../middleware/admin');
 const { Admin, Course } = require("../db");
@@ -17,7 +18,9 @@ router.post('/signup', async (req,res)=>{
         password: password
     })
 
-    res.join({
+    
+
+    res.json({
         message: "Admin created successfully"
     })
 });
@@ -30,7 +33,7 @@ router.post('/courses', adminMiddleware, async (req,res) => {
     const imageLink = req.body.imageLink;
     const price = req.body.price;
 
-    // zod
+    // try using zod here to get the correct formatted inputs
 
     const newCourse = await Course.create({
         title,
@@ -40,6 +43,16 @@ router.post('/courses', adminMiddleware, async (req,res) => {
     })
 
 
+    // const newCourse = await Course.create({
+    //     title: title,
+    //     description: description,
+    //     imageLink: imageLink,
+    //     price: price
+    // })
+    // writing this is the same as the above syntax 
+
+
+
     res.json({
         message: 'Course created successfully', courseId: newCourse._id
     })
@@ -47,7 +60,7 @@ router.post('/courses', adminMiddleware, async (req,res) => {
 
 });
 
-router.get('/courses', adminMiddleware, (req,res) => {
+router.get('/courses', adminMiddleware, async (req,res) => {
     // fetching all courses logic
     const response = await Course.find({});
 
