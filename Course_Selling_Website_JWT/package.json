@@ -1,0 +1,14 @@
+{
+  "name": "course_selling_website_jwt",
+  "version": "1.0.0",
+  "description": "Same as the other one just this time using jwt authorization instead of sending data in the header",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Abhinandan Singh Baghel",
+  "license": "ISC",
+  "dependencies": {
+    "jsonwebtoken": "^9.0.2"
+  }
+}
